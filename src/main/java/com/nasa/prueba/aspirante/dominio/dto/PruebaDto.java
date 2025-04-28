@@ -1,5 +1,12 @@
 package com.nasa.prueba.aspirante.dominio.dto;
 
-public class PruebaDto {
+import java.time.LocalDateTime;
 
-}
+public record PruebaDto(
+        String href,
+        String title,
+        String nasaId,
+        String center,
+
+        LocalDateTime dateTimeCreated
+){}

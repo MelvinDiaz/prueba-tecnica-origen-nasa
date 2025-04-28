@@ -27,7 +27,7 @@ Verificar que todas las herramientas anteriormente hayan sido instaladas de form
 
 ## Estructura proyecto
 
-En este repositorio, en la rama Master, encontraras un proyecto utilizando el framework Spring Boot 2.7.7, que sigue la arquitectura hexagonal y DDD (Domain-driven design), el cuál busca la independecia de la logica de negocio y otras clases de uso rutinario o externas. 
+En este repositorio, en la rama Master, encontraras un proyecto utilizando el framework Spring Boot 3.7.7, que sigue la arquitectura hexagonal y DDD (Domain-driven design), el cuál busca la independecia de la logica de negocio y otras clases de uso rutinario o externas. 
 Actualmente el proyecto cuenta con una seria de package creados los cuales son:
 1. clienterest 
 2. dto 
