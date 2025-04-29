@@ -28,7 +28,7 @@ public class PruebaTask {
         NasaApiResponseDto response = nasaApiClient.searchNasaImages("apollo 11");
         // 2. Process the response
         if (response != null && response.getCollection() != null && response.getCollection().getItems() != null) {
-            // getCollection returns a Collection object. Works thanks to the @Data annotation in NasaApiResponseDto
+            // getCollection returns a Collection object. Works thanks to
             NasaApiResponseDto.NasaItemDto firstItem = response.getCollection().getItems().getFirst();
             if (firstItem.getData() != null && !firstItem.getData().isEmpty()) {
                 NasaApiResponseDto.NasaDataDto dataElement = firstItem.getData().getFirst(); // Get only the first element from data array
