@@ -25,5 +25,4 @@ public class ErrorHandler {
                 ex.getStackTrace());
         return generalResponse.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
-
 }
