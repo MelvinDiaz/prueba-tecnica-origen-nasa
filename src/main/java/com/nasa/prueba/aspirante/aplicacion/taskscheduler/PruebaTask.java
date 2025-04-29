@@ -43,7 +43,7 @@ public class PruebaTask {
                 PruebaDto pruebaDto = new PruebaDto(href, center, title, nasaId, LocalDateTime.now());
 
                 // 4. Save the entity
-                nasaService.guardarPrueba(pruebaDto);
+                nasaService.guardarTransaccion(pruebaDto);
 
                 log.debug("Saved entity for nasa_id: {}", nasaId);
                 itemCount++;

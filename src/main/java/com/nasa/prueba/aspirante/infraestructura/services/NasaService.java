@@ -12,12 +12,10 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class NasaService {
-
     private PruebaInterfaz pruebaInterfaz;
 
     @Transactional(rollbackOn = Exception.class)
-    public void guardarPrueba(PruebaDto pruebaDto) {
-        System.out.println("Guardando prueba: " + pruebaDto);
+    public void guardarTransaccion(PruebaDto pruebaDto) {
         PruebaEntity pruebaEntity = new PruebaEntity();
         pruebaEntity.setHref(pruebaDto.href());
         pruebaEntity.setTitle(pruebaDto.title());

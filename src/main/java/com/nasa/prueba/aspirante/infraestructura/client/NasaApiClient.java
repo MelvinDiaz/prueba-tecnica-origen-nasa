@@ -25,7 +25,7 @@ public class NasaApiClient {
     /**
      * Searches the NASA Image and Video Library API.
      *
-     * @param query The search query (e.g., "apollo 11").
+     * @param query The search query ("apollo 11").
      * @return NasaApiResponseDto containing the search results, or null if an error occurs.
      */
     public NasaApiResponseDto searchNasaImages(String query) {
@@ -45,6 +45,7 @@ public class NasaApiClient {
         } catch (Exception e) {
             logger.error("Error fetching data from NASA API: {}", e.getMessage(), e);
         }
-        return null; // Return null in case of errors
+        // Return null in case of errors
+        return null;
     }
 }
