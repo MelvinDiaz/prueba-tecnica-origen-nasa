@@ -1,4 +1,4 @@
-package com.nasa.prueba.aspirante.infraestructura.client.dto;
+package com.nasa.prueba.aspirante.dominio.dto;
 
 import lombok.Data;
 import java.util.List;
@@ -7,5 +7,5 @@ import java.util.List;
 public class NasaCollectionDto {
     private String version;
     private String href;
-    private List<NasaItemDto> items;
+    private List<NasaApiResponseDto.NasaItemDto> items;
 }

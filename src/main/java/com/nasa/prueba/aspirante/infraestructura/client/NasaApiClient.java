@@ -1,6 +1,6 @@
 package com.nasa.prueba.aspirante.infraestructura.client;
 
-import com.nasa.prueba.aspirante.infraestructura.client.dto.NasaApiResponseDto;
+import com.nasa.prueba.aspirante.dominio.dto.NasaApiResponseDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

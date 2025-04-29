@@ -2,9 +2,7 @@ package com.nasa.prueba.aspirante.aplicacion.taskscheduler;
 
 import com.nasa.prueba.aspirante.dominio.dto.PruebaDto;
 import com.nasa.prueba.aspirante.infraestructura.client.NasaApiClient;
-import com.nasa.prueba.aspirante.infraestructura.client.dto.NasaApiResponseDto;
-import com.nasa.prueba.aspirante.infraestructura.client.dto.NasaDataDto;
-import com.nasa.prueba.aspirante.infraestructura.client.dto.NasaItemDto;
+import com.nasa.prueba.aspirante.dominio.dto.NasaApiResponseDto;
 import com.nasa.prueba.aspirante.infraestructura.services.NasaService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -31,10 +29,10 @@ public class PruebaTask {
         // 2. Process the response
         if (response != null && response.getCollection() != null && response.getCollection().getItems() != null) {
             int itemCount = 0;
-            NasaItemDto firstItem = response.getCollection().getItems().getFirst();
+            NasaApiResponseDto.NasaItemDto firstItem = response.getCollection().getItems().getFirst();
             if (firstItem.getData() != null && !firstItem.getData().isEmpty()) {
                 System.out.println("Item: " + firstItem);
-                NasaDataDto dataElement = firstItem.getData().getFirst(); // Get only the first element from data array
+                NasaApiResponseDto.NasaDataDto dataElement = firstItem.getData().getFirst(); // Get only the first element from data array
                 // 3. Extract required fields
                 String href = firstItem.getHref();
                 String center = dataElement.getCenter();
