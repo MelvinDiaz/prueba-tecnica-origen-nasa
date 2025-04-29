@@ -1,8 +1,7 @@
 package com.nasa.prueba.aspirante.infraestructura.client;
 
 import com.nasa.prueba.aspirante.dominio.dto.NasaApiResponseDto;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
@@ -10,9 +9,9 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @Service
+@Slf4j
 public class NasaApiClient {
 
-    private static final Logger logger = LoggerFactory.getLogger(NasaApiClient.class);
     private static final String NASA_API_URL = "https://images-api.nasa.gov/search";
 
     private final RestTemplate restTemplate;
@@ -33,17 +32,17 @@ public class NasaApiClient {
                 .queryParam("q", query);
 
         String url = builder.build().toUriString();
-        logger.info("Requesting NASA API: {}", url);
+        log.info("Requesting NASA API: {}", url);
 
         try {
-            logger.info(url);
+            log.info(url);
             NasaApiResponseDto response = restTemplate.getForObject(url, NasaApiResponseDto.class);
-            logger.info("Successfully received response from NASA API for query: {}", query);
+            log.info("Successfully received response from NASA API for query: {}", query);
             return response;
         } catch (HttpClientErrorException e) {
-            logger.error("HTTP error fetching data from NASA API: {} - {}", e.getStatusCode(), e.getResponseBodyAsString(), e);
+            log.error("HTTP error fetching data from NASA API: {} - {}", e.getStatusCode(), e.getResponseBodyAsString(), e);
         } catch (Exception e) {
-            logger.error("Error fetching data from NASA API: {}", e.getMessage(), e);
+            log.error("Error fetching data from NASA API: {}", e.getMessage(), e);
         }
         // Return null in case of errors
         return null;

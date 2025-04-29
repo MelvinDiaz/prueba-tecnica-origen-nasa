@@ -28,10 +28,9 @@ public class PruebaTask {
         NasaApiResponseDto response = nasaApiClient.searchNasaImages("apollo 11");
         // 2. Process the response
         if (response != null && response.getCollection() != null && response.getCollection().getItems() != null) {
-            int itemCount = 0;
+            // getCollection returns a Collection object. Works thanks to the @Data annotation in NasaApiResponseDto
             NasaApiResponseDto.NasaItemDto firstItem = response.getCollection().getItems().getFirst();
             if (firstItem.getData() != null && !firstItem.getData().isEmpty()) {
-                System.out.println("Item: " + firstItem);
                 NasaApiResponseDto.NasaDataDto dataElement = firstItem.getData().getFirst(); // Get only the first element from data array
                 // 3. Extract required fields
                 String href = firstItem.getHref();
@@ -44,11 +43,10 @@ public class PruebaTask {
                 nasaService.guardarTransaccion(pruebaDto);
 
                 log.debug("Saved entity for nasa_id: {}", nasaId);
-                itemCount++;
             } else {
                 log.warn("Item with href {} has null or empty data array, skipping.", firstItem.getHref());
             }
-            log.info("Successfully processed and saved {} items.", itemCount);
+            log.info("Successfully processed and saved item.");
         } else {
             log.warn("Received null or empty response from NASA API.");
         }
